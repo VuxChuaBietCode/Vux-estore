@@ -3,8 +3,8 @@ import axios from 'axios';
 import { toast } from 'react-hot-toast';
 
 
-
-const BASE_URL = 'http://localhost:3000';
+// Determine base URL based on environment
+const BASE_URL = import.meta.env.MODE === 'development' ? 'http://localhost:3000' : "";
 
 export const useProductStore = create((set, get) => ({
     //products state    

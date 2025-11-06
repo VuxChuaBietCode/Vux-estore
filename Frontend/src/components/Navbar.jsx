@@ -3,12 +3,15 @@ import { Link } from 'react-router-dom'
 import { ShoppingBagIcon, ShoppingCartIcon } from 'lucide-react'
 import { useResolvedPath } from 'react-router-dom'
 import ThemeSelector from './ThemeSelector'
+import { useProductStore } from '../store/useProductStore'
 
 
 
 const Navbar = () => {
     const {pathname} = useResolvedPath()
     const isHomePage = pathname === "/"
+
+    const {products} = useProductStore();
 
 
 
@@ -37,7 +40,7 @@ const Navbar = () => {
                         <div className="p-2 rounded-full hover:bg-base-200 trasition-colors">
                             <ShoppingBagIcon className="size-5" />
                             <span className="badge badge-sm badge-primary indicator-item">
-                                8
+                                {products.length}
                             </span>
                         </div>
                     </div>
